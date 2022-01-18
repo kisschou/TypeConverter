@@ -120,7 +120,7 @@ func NewConverter(input interface{}) *TypeConverter {
 		break
 
 	case "bool":
-		Bool = input.(bool)
+		tStruct = BoolToStruct(input.(bool))
 		break
 
 	case "byte":
