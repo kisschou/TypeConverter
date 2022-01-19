@@ -90,7 +90,7 @@ func BoolToMap(input bool) map[string]interface{} {
 func BoolToStruct(input bool) *TypeConverter {
 	return &TypeConverter{
 		String:             BoolToString(input),
-		Bytes:              []byte(input),
+		Bytes:              []byte(BoolToString(input)),
 		Bool:               input,
 		Int:                BoolToInt(input, 0).(int),
 		Int8:               BoolToInt(input, 8).(int8),

@@ -70,26 +70,6 @@ type (
 	}
 )
 
-// ====> Bool To
-
-// BoolToString Convert bool to string.
-func BoolToString(input bool) string {
-	if input {
-		return "true"
-	}
-	return "false"
-}
-
-// BoolToInt Convert bool to int.
-func BoolToInt(input bool) int {
-	if input {
-		return 1
-	}
-	return 0
-}
-
-// <==== End
-
 // ====> Int to
 
 // IntToString Convert int to string.
@@ -102,19 +82,20 @@ func IntToString(i int) string {
 // NewConverter Init *TypeConverter.
 func NewConverter(input interface{}) *TypeConverter {
 	tStruct := new(TypeConverter)
-	tName := reflect.TypeOf(input).String()
-	/*
-		fmt.Println("=====================>")
-		fmt.Println("TypeOf: ", reflect.TypeOf(input))
-		fmt.Println("TypeOf Name(): ", reflect.TypeOf(input).Name())
-		fmt.Println("TypeOf String(): ", reflect.TypeOf(input).String())
-		fmt.Println("TypeOf Kind().String(): ", reflect.TypeOf(input).Kind().String())
-		fmt.Println("TypeOf Bits(): ", reflect.TypeOf(input).Kind().String())
-		fmt.Println("TypeOf Comparable(): ", reflect.TypeOf(input).Comparable())
-		fmt.Println("<=====================")
-	*/
+	// tName := reflect.TypeOf(input).String()
+	tKind := reflect.TypeOf(input).Kind().String()
 
-	switch tName {
+	fmt.Println("=====================>")
+	fmt.Println("TypeOf: ", reflect.TypeOf(input))
+	fmt.Println("TypeOf Name(): ", reflect.TypeOf(input).Name())
+	fmt.Println("TypeOf String(): ", reflect.TypeOf(input).String())
+	fmt.Println("TypeOf Kind().String(): ", reflect.TypeOf(input).Kind().String())
+	fmt.Println("TypeOf Bits(): ", reflect.TypeOf(input).Kind().String())
+	fmt.Println("TypeOf Comparable(): ", reflect.TypeOf(input).Comparable())
+	fmt.Println("<=====================")
+	fmt.Println("")
+
+	switch tKind {
 	case "string":
 		tStruct = StringToStruct(input.(string))
 		break
@@ -124,57 +105,61 @@ func NewConverter(input interface{}) *TypeConverter {
 		break
 
 	case "byte":
-		Byte = input.(byte)
+		// Byte = input.(byte)
+		fmt.Println(string(input.(byte)))
 		break
 
 	case "int":
-		Int = input.(int)
+		// Int = input.(int)
 		break
 	case "int8":
-		Int8 = input.(int8)
+		// Int8 = input.(int8)
 		break
 	case "int16":
-		Int16 = input.(int16)
+		// Int16 = input.(int16)
 		break
 	case "int32":
-		Int32 = input.(int32)
+		// Int32 = input.(int32)
 		break
 	case "int64":
-		Int64 = input.(int64)
+		// Int64 = input.(int64)
 		break
 	case "uint":
-		Uint = input.(uint)
+		// Uint = input.(uint)
 		break
+
 	case "uint8":
-		Uint8 = input.(uint8)
 		break
+
 	case "uint16":
-		Uint16 = input.(uint16)
+		// Uint16 = input.(uint16)
 		break
 	case "uint32":
-		Uint32 = input.(uint32)
+		// Uint32 = input.(uint32)
 		break
 	case "uint64":
-		Uint64 = input.(uint64)
+		// Uint64 = input.(uint64)
 		break
 	case "float32":
-		Float32 = input.(float32)
+		// Float32 = input.(float32)
 		break
 	case "float64":
-		Float64 = input.(float64)
+		// Float64 = input.(float64)
 		break
 
 	case "complex64":
-		Complex64 = input.(complex64)
+		// Complex64 = input.(complex64)
 		break
 	case "complex128":
-		Complex128 = input.(complex128)
+		// Complex128 = input.(complex128)
 		break
 
-	case "[]interface{}":
+	case "slice":
+		tStruct = SliceToStruct(SliceToInterfaceSlice(input))
 		break
 
-	case "map[string]interface{}":
+	case "map":
+		tStruct = MapToStruct(MapToStringMapInterface(input))
 		break
 	}
 
@@ -188,8 +173,18 @@ func main() {
 		})
 		return
 	*/
-	rawData := "3306"
+	// rawData := "3306"
+	// nc := NewConverter([]byte(rawData))
+
+	// rawData := []string{"Hello", "World", "!"}
+	// rawData := map[string]interface{}{"s1": "Hello", "s2": "World", "s3": "!", "s4": 123}
+	// rawData := map[string]string{"s1": "Hello", "s2": "World", "s3": "!"}
+	rawData := map[string][]string{"s1": []string{"Hello", "World"}}
 	nc := NewConverter(rawData)
+
+	// var rawData byte = 51
+	// nc := NewConverter(rawData)
+
 	fmt.Println(nc)
 	return
 
