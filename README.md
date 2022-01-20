@@ -62,7 +62,7 @@ tcImpl.Compare("EGT", 13) // 判断是否大于等于13
 
 总结一些我觉得可用的上的函数:
 
-### (*TypeConverter) Equal(compareData interface{}) bool
+### 1. (*TypeConverter) Equal(compareData interface{}) bool
 
 比对新传入的对象与当前的对象是否相等.
 
@@ -83,7 +83,7 @@ if tc.New(d1).Equal(d2) {
 
 <br />
 
-### (*TypeConverter) Compare(operator string, compareData interface{}) bool
+### 2. (*TypeConverter) Compare(operator string, compareData interface{}) bool
 
 传入新对象和运算符以与当前对象进行比较.
 
@@ -106,7 +106,7 @@ if tc.New(d1).Compare("GT", d2) {
 
 <br />
 
-### SliceEqual(d1, d2 []interface{}) bool
+### 3. SliceEqual(d1, d2 []interface{}) bool
 
 传入两个切片, 比对他们是否相等.
 
@@ -127,7 +127,7 @@ if tc.SliceEqual(d1, d2) {
 
 <br />
 
-### MapEqual(d1, d2 map[string]interface{}) bool
+### 4. MapEqual(d1, d2 map[string]interface{}) bool
 
 传入两个map, 比对他们是否相等.
 
