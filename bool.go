@@ -1,4 +1,4 @@
-package main
+package tc
 
 // BoolToString Convert bool to string.
 func BoolToString(input bool) string {

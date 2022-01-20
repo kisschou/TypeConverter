@@ -5,4 +5,4 @@
 
 // Package TypeConverter implements type conversion.
 // Used to safely obtain data of the specified type.
-package main
+package tc
