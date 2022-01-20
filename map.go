@@ -5,7 +5,7 @@ import (
 	"reflect"
 )
 
-// MapToStringMapInterface Convert map to map[string]interface{}.
+// MapToStringMapInterface Convert map[string]interface{} to map[string]interface{}.
 func MapToStringMapInterface(input interface{}) map[string]interface{} {
 	r := make(map[string]interface{}, 0)
 	m := reflect.ValueOf(input)
@@ -16,7 +16,7 @@ func MapToStringMapInterface(input interface{}) map[string]interface{} {
 	return r
 }
 
-// MapToString Convert map to []byte.
+// MapToString Convert map[string]interface{} to []byte.
 func MapToBytes(input map[string]interface{}) []byte {
 	if b, err := json.Marshal(input); err == nil {
 		return b
@@ -24,7 +24,7 @@ func MapToBytes(input map[string]interface{}) []byte {
 	return []byte{}
 }
 
-// MapToSlice Convert map to []interface{}.
+// MapToSlice Convert map[string]interface{} to []interface{}.
 func MapToSlice(input map[string]interface{}) []interface{} {
 	s := make([]interface{}, 0)
 	for k, v := range input {
@@ -34,6 +34,7 @@ func MapToSlice(input map[string]interface{}) []interface{} {
 	return s
 }
 
+// MapToStruct Convert map[string]interface{} to struct.
 func MapToStruct(input map[string]interface{}) *TypeConverter {
 	boolVal := len(input) > 0
 	return &TypeConverter{
