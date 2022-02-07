@@ -42,11 +42,11 @@ func TestNew(t *testing.T) {
 		if tStruct.Int64 != test.i {
 			t.Errorf("Fail verify int64 Fail. got: %v, want: %v.", tStruct.Int64, test.i)
 		}
-		if !SliceEqual(tStruct.InterfaceSlice, test.is) {
-			t.Errorf("Fail verify slice. got: %v, want: %v.", tStruct.InterfaceSlice, test.is)
+		if !SliceEqual(tStruct.Slice, test.is) {
+			t.Errorf("Fail verify slice. got: %v, want: %v.", tStruct.Slice, test.is)
 		}
-		if !MapEqual(tStruct.StringMapInterface, test.smi) {
-			t.Errorf("Fail verify map. got: %v, want: %v.", tStruct.StringMapInterface, test.smi)
+		if !MapEqual(tStruct.Map, test.smi) {
+			t.Errorf("Fail verify map. got: %v, want: %v.", tStruct.Map, test.smi)
 		}
 	}
 }
@@ -92,11 +92,11 @@ func BenchmarkNew(b *testing.B) {
 			if tStruct.Int64 != test.i {
 				fmt.Println(fmt.Sprintf("Fail verify int64 Fail. got: %v, want: %v.", tStruct.Int64, test.i))
 			}
-			if !SliceEqual(tStruct.InterfaceSlice, test.is) {
-				fmt.Println(fmt.Sprintf("Fail verify slice. got: %v, want: %v.", tStruct.InterfaceSlice, test.is))
+			if !SliceEqual(tStruct.Slice, test.is) {
+				fmt.Println(fmt.Sprintf("Fail verify slice. got: %v, want: %v.", tStruct.Slice, test.is))
 			}
-			if !MapEqual(tStruct.StringMapInterface, test.smi) {
-				fmt.Println(fmt.Sprintf("Fail verify map. got: %v, want: %v.", tStruct.StringMapInterface, test.smi))
+			if !MapEqual(tStruct.Map, test.smi) {
+				fmt.Println(fmt.Sprintf("Fail verify map. got: %v, want: %v.", tStruct.Map, test.smi))
 			}
 		}
 	}

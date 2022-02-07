@@ -62,11 +62,11 @@ type (
 		// Complex128 complex128
 		Complex128 complex128
 
-		// InterfaceSlice []interface{}
-		InterfaceSlice []interface{}
+		// Slice []interface{}
+		Slice []interface{}
 
-		// StringMapInterface map[string]interface{}
-		StringMapInterface map[string]interface{}
+		// Map map[string]interface{}
+		Map map[string]interface{}
 	}
 )
 
@@ -124,11 +124,11 @@ func (tc *TypeConverter) Equal(compareData interface{}) bool {
 		return true
 	}
 	// 校验切片
-	if SliceEqual(tc.InterfaceSlice, ctc.InterfaceSlice) {
+	if SliceEqual(tc.Slice, ctc.Slice) {
 		return true
 	}
 	// 校验map
-	if MapEqual(tc.StringMapInterface, ctc.StringMapInterface) {
+	if MapEqual(tc.Map, ctc.Map) {
 		return true
 	}
 	return false
