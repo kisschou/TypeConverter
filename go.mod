@@ -1,3 +1,3 @@
-module ateshit.com/kisschou/TypeConverter
+module ateshit.icu/kisschou/TypeConverter
 
 go 1.17
