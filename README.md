@@ -16,7 +16,7 @@
 1. 在需要使用的脚本中引入包:
 
 ```go
-import tc "github.com/kisschou/TypeConverter"
+import tc "ateshit.icu/kisschou/TypeConverter"
 ```
 
 <br />
@@ -68,7 +68,7 @@ tcImpl.Compare("EGT", 13) // 判断是否大于等于13
 
 Example:
 ```go
-import tc "github.com/kisschou/TypeConverter"
+import tc "ateshit.icu/kisschou/TypeConverter"
 
 // 待比较对象
 var d1, d2 interface{}
@@ -89,7 +89,7 @@ if tc.New(d1).Equal(d2) {
 
 Example:
 ```go
-import tc "github.com/kisschou/TypeConverter"
+import tc "ateshit.icu/kisschou/TypeConverter"
 
 // 待比较对象
 var d1, d2 interface{}
@@ -112,7 +112,7 @@ if tc.New(d1).Compare("GT", d2) {
 
 Example:
 ```go
-import tc "github.com/kisschou/TypeConverter"
+import tc "ateshit.icu/kisschou/TypeConverter"
 
 // 待比较对象
 var d1, d2 []interface{}
@@ -133,7 +133,7 @@ if tc.SliceEqual(d1, d2) {
 
 Example:
 ```go
-import tc "github.com/kisschou/TypeConverter"
+import tc "ateshit.icu/kisschou/TypeConverter"
 
 // 待比较对象
 var d1, d2 map[string]interface{}
